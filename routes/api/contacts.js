@@ -1,6 +1,6 @@
 const express = require("express");
 
-const contacts = require("../../controllers/contacts");
+const contacts = require("../../controllers/contacts/index");
 
 const router = express.Router();
 
