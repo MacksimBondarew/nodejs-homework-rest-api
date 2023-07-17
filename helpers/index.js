@@ -1,6 +1,6 @@
 const HttpError = require("./HttpError");
-const addSchema = require("./addSchema");
+const ctrlWrapper = require("./ctrlWrapper");
 module.exports = {
     HttpError, 
-    addSchema,
+    ctrlWrapper
 };
