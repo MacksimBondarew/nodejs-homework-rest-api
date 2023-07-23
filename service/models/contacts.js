@@ -1,7 +1,7 @@
-const {Contact} = require("../service/schemas/index");
+const {Contact} = require("../schemes/index");
 
-const listContacts = async () => {
-    return Contact.find();
+const listContacts = async (owner, skip, limit) => {
+    return Contact.find({owner}, "-createdAt -updatedAt", {skip, limit}).populate("owner", "email subscription");
 };
 
 const getContactById = async (contactId) => {
@@ -12,8 +12,8 @@ const removeContact = async (contactId) => {
     return Contact.findByIdAndRemove(contactId);
 };
 
-const addContact = async (data) => {
-    return Contact.create(data);
+const addContact = async (data, owner) => {
+    return Contact.create({...data, owner});
 };
 
 const updateContact = async (contactId, body) => {
