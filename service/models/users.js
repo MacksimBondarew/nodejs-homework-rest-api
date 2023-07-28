@@ -4,8 +4,8 @@ const getByEmail = (email) => {
     return User.findOne({email});
 };
 
-const addUser = async (data, password) => {
-    return User.create({...data, password});
+const addUser = async (data, password, avatarURL  ) => {
+    return User.create({...data, password, avatarURL : avatarURL  });
 };
 
 const updateUser = async (id, body) => {

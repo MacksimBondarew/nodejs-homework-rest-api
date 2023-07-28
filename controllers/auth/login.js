@@ -5,7 +5,7 @@ const { HttpError } = require("../../helpers/index");
 
 const { SECRET_KEY } = process.env;
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
     const { email, password } = req.body;
     const user = await users.getByEmail(email);
 
