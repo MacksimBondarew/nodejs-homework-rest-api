@@ -1,19 +1,19 @@
 const {User} = require("../schemes/index");
 
-const getByEmail = (email) => {
-    return User.findOne({email});
+const getByUser = (data) => {
+    return User.findOne(data);
 };
 
-const addUser = async (data, password, avatarURL  ) => {
-    return User.create({...data, password, avatarURL : avatarURL  });
+const addUser = async (data, password, avatarURL, verificationToken  ) => {
+    return User.create({...data, password, avatarURL : avatarURL, verificationToken: verificationToken  });
 };
 
 const updateUser = async (id, body) => {
-    return User.findByIdAndUpdate({_id: id}, body);
+    return User.findByIdAndUpdate({_id: id}, body, { new: true });
 };
 
 module.exports = {
-    getByEmail,
+    getByUser,
     addUser,
     updateUser
 }
