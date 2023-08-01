@@ -22,8 +22,6 @@ const resendVerifyEmail = async (req, res) => {
         html: `<a target="_blank" href="${url}/users/verify/${verificationToken}">Click verify email</a>`
     };
 
-    console.log(verifyEmail);
-
     await sendEmailForUser(verifyEmail);
 
     res.json({
