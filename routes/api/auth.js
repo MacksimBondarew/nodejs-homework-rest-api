@@ -6,6 +6,10 @@ const auth = require("../../controllers/auth/index");
 
 router.post('/register', validateBody(schemas.registerSchemaValidate), auth.register);
 
+router.get("/verify/:verificationToken", auth.verifyEmail);
+
+router.post('/verify', validateBody(schemas.emailValidate), auth.resendVerifyEmail);
+
 router.post('/login', validateBody(schemas.loginSchemaValidate), auth.login);
 
 router.post('/logout', authenticate, auth.logout);

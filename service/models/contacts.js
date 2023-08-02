@@ -1,7 +1,6 @@
 const {Contact} = require("../schemes/index");
 
 const listContacts = async (owner, skip, limit, favorite) => {
-    console.log(favorite);
     if (favorite === undefined) {
         return Contact.find({ owner }, "-createdAt -updatedAt", {skip, limit}).populate("owner", "email subscription");
     }
